@@ -1,0 +1,13 @@
+programa ejemplo 
+	binario multiple, num;
+	octal numero = 23O;
+	hexademal res;
+ 
+	leer (num);
+ 
+	multiple =10010+1001; 
+	numero = numereo + 123O*101O; 
+	res = ADFX – B112EX; 
+	escribir(res);
+	hexadecimal
+finprograma
