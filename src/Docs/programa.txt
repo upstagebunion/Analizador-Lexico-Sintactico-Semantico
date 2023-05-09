@@ -1,8 +1,8 @@
 Inicio
 	Real cuenta, numero, resultado;
-	Entero valor;
+	Real valor;
 	Leer (valor);
-	cuenta = 23 + (numero - valor);
+	cuenta = 23.0 + (numero - valor);
 	numero = cuenta / 123.99;
 	resultado = numero + cuenta;
 	Escribir (resultado);
