@@ -2,6 +2,7 @@ Inicio
 	Real cuenta, numero, resultado;
 	Real valor;
 	Leer (valor);
+	a * b + (c / d) - e;
 	cuenta = 23.0 + (numero - valor);
 	numero = cuenta / 123.99;
 	resultado = numero + cuenta;
