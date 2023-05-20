@@ -40,6 +40,8 @@ public class Main {
         Display simb = new Display(ts.simbolos, "Tabla de Simbolos", true); //Se muestra la tabla de simbolos
         AnalizadorSemantico as = new AnalizadorSemantico(ts.tokens, ts.simbolos); //Se construye y se ejecuta el analisis semántico y las verificaciones de tipos
         Posfija pf = new Posfija(ts.tokens);
-        //SavePf spf = new SavePf(pf.pf);
+        SavePf spf = new SavePf(pf.pf, "src/Docs/posfija.txt");
+        GenCodP gcp = new GenCodP(pf.pf);
+        SavePf scp = new SavePf(gcp.codigoP, "src/Docs/codigoP.txt");
     }
 }

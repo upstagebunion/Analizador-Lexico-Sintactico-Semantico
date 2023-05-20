@@ -24,8 +24,23 @@ public class Posfija {
         for(int i = 0; i < c; i++){
             item = tk.getNodo(i);
             if(item.atributo != 59){   
-                System.out.println("Se agrega: "+item.dato);             
-                temp.agregarAlFinal(item.dato, item.atributo);
+                System.out.println("Se agrega: "+item.dato);
+                if (item.atributo == 406){
+                    temp.agregarAlFinal(item.dato, item.atributo);
+                    modificarLinea(temp);
+                    pf.agregarAlFinal(";", 59);
+                    temp.limpiar();
+                    postfija = ""; //Se limpia la linea
+                }else if(item.atributo == 401){
+                    temp.agregarAlFinal(item.dato, item.atributo);
+                    modificarLinea(temp);
+                    pf.agregarAlFinal(";", 59);
+                    temp.limpiar();
+                    postfija = ""; //Se limpia la linea
+                }else{
+                    temp.agregarAlFinal(item.dato, item.atributo);
+                }
+                
             }else{
                 System.out.println("fin linea");
                 modificarLinea(temp);
@@ -77,7 +92,7 @@ public class Posfija {
             else if (itemAtributo==41) {
                 while (!pila.isEmpty() && !pila.peek().equals("(")) {
                     System.out.println("Se saca: "+ pila.peek()+" de la pila y se agrega a salida");
-                    pf.agregarAlFinal(pila.peek(), 400);
+                    pf.agregarAlFinal(pila.peek(), DevAtri(pila.peek()));
                     postfija += pila.pop();
                 }
                 if (!pila.isEmpty() && pila.peek().equals("(")) {
@@ -98,7 +113,7 @@ public class Posfija {
                         System.out.println("Se detectó un operador");
                         while (!pila.isEmpty() && prioridad(pila.peek()) >= prioridad(itemValue)) {
                             System.out.println("se sacará: "+ pila.peek()+" y se agrega a salida");
-                            pf.agregarAlFinal(pila.peek(), 400);
+                            pf.agregarAlFinal(pila.peek(), DevAtri(pila.peek()));
                             postfija += pila.pop();
                         }
                         System.out.println("Se metio: "+itemValue +" a la pila");
@@ -112,7 +127,7 @@ public class Posfija {
         // Saca los operadores restantes de la pila y los anade a la salida
         while (!pila.isEmpty()) {
             System.out.println("Se saca: "+ pila.peek()+" de la pila y se agrega a salida");
-            pf.agregarAlFinal(pila.peek(), 400);
+            pf.agregarAlFinal(pila.peek(), DevAtri(pila.peek()));
             postfija += pila.pop();
         }
         
@@ -135,6 +150,31 @@ public class Posfija {
                 return 3;
             default:
                 return -1;
+        }
+    }
+
+    public int DevAtri(String value){
+        switch(value){
+            case "Real":
+                return 403;
+            case "Leer":
+                return 404;
+            case "Escribir":
+                return 405; 
+            case "-":
+                return 45;
+            case "+":
+                return 43;
+            case "/":
+                return 47;
+            case "*":
+                return 42;
+            case "=":
+                return 61;
+            case "Entero":
+                return 402;
+            default:
+                return 400;
         }
     }
 

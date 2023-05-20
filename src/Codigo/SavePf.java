@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class SavePf {
-    String fileName = "../Docs/postfija.txt";
+    String fileName = "src/Docs/posfija.txt";
     String encoding = "UTF-8";
 
-    public SavePf(Listas pf){
+    public SavePf(Listas pf, String dir){
+        fileName = dir;
+        String temp ="";
         
         try{
             PrintWriter writer = new PrintWriter(fileName, encoding);
@@ -16,8 +18,15 @@ public class SavePf {
                 String itemValue = pf.RecorreUno(i)[0];
                 int itemAtributo = Integer.parseInt(pf.RecorreUno(i)[1]);
 
-                writer.println(itemValue+"("+itemAtributo+")");
-            }            
+                if(itemAtributo == 59){
+                    temp += itemValue;
+                    writer.println(temp);
+                    temp = "";
+                }else{
+                    temp += itemValue;
+                }
+            }
+                        
             writer.close();
         }
         catch (IOException e){

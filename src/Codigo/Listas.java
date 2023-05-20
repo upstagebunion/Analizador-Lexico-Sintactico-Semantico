@@ -171,4 +171,18 @@ public class Listas {
         }
         return contador;
     }
+
+    public void eliminarUltimosDos(){
+        int c = CuentaElementos();
+        Nodo recorrer;
+        if(!estaVacia()){
+            recorrer = inicio;
+            for(int i = 0; i < c-3; i++){
+                recorrer = recorrer.siguiente;
+            }
+            fin = recorrer;
+        }else{
+            recorrer = null;
+        }
+    }
 }

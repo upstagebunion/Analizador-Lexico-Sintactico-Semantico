@@ -1,0 +1,11 @@
+Inicio;
+cuentanumeroresultadoReal;
+valorReal;
+fabcdeReal;
+valorLeer;
+fab*cd/+e-=;
+cuenta23.0numerovalor-+=;
+numerocuenta123.99/=;
+resultadonumerocuenta+=;
+resultadoEscribir;
+Fin;
