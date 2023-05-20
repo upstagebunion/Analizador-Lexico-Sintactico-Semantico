@@ -19,10 +19,12 @@ public class SavePf {
                 int itemAtributo = Integer.parseInt(pf.RecorreUno(i)[1]);
 
                 if(itemAtributo == 59){
+                    //temp += itemValue +"("+itemAtributo+")";
                     temp += itemValue;
                     writer.println(temp);
                     temp = "";
                 }else{
+                    //temp += itemValue+"("+itemAtributo+")";
                     temp += itemValue;
                 }
             }
