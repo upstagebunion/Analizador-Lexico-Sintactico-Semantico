@@ -12,24 +12,24 @@ public class SavePf {
         String temp ="";
         
         try{
-            PrintWriter writer = new PrintWriter(fileName, encoding);
-            for (int i = 0; i < pf.CuentaElementos(); i++) {
+            PrintWriter writer = new PrintWriter(fileName, encoding);   //Crea el archivo, si ya existe lo reescribirá
+            for (int i = 0; i < pf.CuentaElementos(); i++) { //por cada valor de la lista pasada
 
-                String itemValue = pf.RecorreUno(i)[0];
+                String itemValue = pf.RecorreUno(i)[0]; //se guarda el valor del item
                 int itemAtributo = Integer.parseInt(pf.RecorreUno(i)[1]);
 
-                if(itemAtributo == 59){
+                if(itemAtributo == 59){ //Si es un ;, es final de linea, por lo que se debe imprimir como una linea nueva en el archivo
                     //temp += itemValue +"("+itemAtributo+")";
-                    temp += itemValue;
-                    writer.println(temp);
-                    temp = "";
-                }else{
+                    temp += itemValue; // guarda el ; en la linea
+                    writer.println(temp); //crea la nueva linea en el archivo
+                    temp = ""; //se limpia la variable temporal, o la línea ya guardada
+                }else{ //si no es el fin de la linea
                     //temp += itemValue+"("+itemAtributo+")";
-                    temp += itemValue;
+                    temp += itemValue; //guarda el item en la linea actual
                 }
             }
                         
-            writer.close();
+            writer.close(); //cierra el archivo
         }
         catch (IOException e){
             System.out.println("An error occurred.");
