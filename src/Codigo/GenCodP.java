@@ -42,8 +42,8 @@ public class GenCodP {
             int itemAtributo = Integer.parseInt(linea.RecorreUno(0)[1]);
             System.out.println("Vamos en: "+itemValue);
 
-            if(itemAtributo == 401){ //si el primer item es "Inicio"
-                System.out.println("Se detectó el inicio");
+            if(itemAtributo == 401 || itemAtributo == 406){ //si el primer item es "Inicio" o "Final"
+                System.out.println("Se detectó el inicio o final");
                 codigoP.agregarAlFinal(itemValue, itemAtributo);    //Se agrega tal cual a la salida de CodigoP
                 codigoP.agregarAlFinal(";", 59);    //se le agrega el final de linea 
 
@@ -63,11 +63,6 @@ public class GenCodP {
                     codigoP.agregarAlFinal(orden + " " + it, 1);    //Guarda en codigoP la orden y el valor de la variable
                     codigoP.agregarAlFinal(";", 59);    //Termina la línea en codigoP
                 }
-                
-            }else if(itemAtributo == 406){  //Si detecta la palabra Final //ESTO PUEDE SER OPTIMIZADO
-                System.out.println("Se detectó el final");
-                codigoP.agregarAlFinal(itemValue, itemAtributo); //La agrega directo al codigoP
-                codigoP.agregarAlFinal(";", 59);    //Agrega el final de linea
                 
             }else{  //Si no fue nada de lo anterior, debe ser una asignación o una operación, o nada
                 System.out.println("Entamos en recursividad");
