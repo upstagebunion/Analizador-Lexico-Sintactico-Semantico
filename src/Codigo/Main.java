@@ -34,6 +34,7 @@
 package Codigo;
 public class Main {
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
         LectorArchivo la = new LectorArchivo("src/Docs/programa.txt"); //se Lee el archivo que contiene el programa
         AnalizadorLexico al = la.al; //Se construye el analizador Léxico y se usa el que contiene el lector de archivo
         Display dSim = new Display(al.lsimbolos,"Tabla de Simbolos sin repeticion", false); //Se muestra la primer tabla de variables sin repetición
@@ -47,5 +48,6 @@ public class Main {
         SavePf spf = new SavePf(pf.pf, "src/Docs/posfija.txt"); //Guarda en código en notacion posfija
         GenCodP gcp = new GenCodP(pf.pf); //Genera el codigo P usando la notacion posfija del código
         SavePf scp = new SavePf(gcp.codigoP, "src/Docs/codigoP.txt"); //Guarda el códigoP en u .txt
+        System.out.println(System.currentTimeMillis() - startTime);
     }
 }
